@@ -3,9 +3,9 @@ const userModel = require('../models/userModel');
 
 const getUserController= async (req,res) =>{
     try{
-        const user=await userModel.fingById({ _id:req.body.id});
+        const user=await userModel.findById({ _id:req.body.id});
         if(!user){
-            return ste.status(404).send({
+            return res.status(404).send({
                 success:false,
                 message:"User not found"
             })
@@ -98,8 +98,8 @@ const updatePasswordController=async (req,res)=>{
 }
 const resetPasswordController=async (req,res)=>{
     try{
-       const user=await userModel.findOne({email,answer})
        const {email,answer,newPassword}=req.body;
+             const user=await userModel.findOne({email,answer})
          if(!email || !answer || !newPassword){
             return res.status(400).send({
                 success:false,
@@ -132,7 +132,7 @@ const resetPasswordController=async (req,res)=>{
 }
 const deleteProfileController=async (req,res)=>{
     try{
-         await userModel.findByIdAndDelete(req.params.id);
+         await userModel.findByIdAndDelete(req.body.id);
          return res.status(200).send({
             success:true,
             message:"Profile Deleted Successfully"

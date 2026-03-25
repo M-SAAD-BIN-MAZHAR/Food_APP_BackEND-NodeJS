@@ -22,7 +22,7 @@ const registerController=async (req,res)=>{
             });
         }  
         var salt =bcrypt.genSaltSync(10);
-        const hashedPassword=await bsrypt.hash(password,salt);
+        const hashedPassword=await bcrypt.hash(password,salt);
         
         const user=await userModel.create({
             userName,email,password:hashedPassword,phone,address,answer

@@ -1,4 +1,7 @@
 
+const foodModel=require("../models/foodModal");
+const orderModel=require("../models/orderModel");
+
 
 
 const createFoodController=async(req,res)=>{
@@ -136,6 +139,11 @@ const updateFoodController=async(req,res)=>{
                 message:"food not found"
             });
         }
+        res.status(200).json({
+            success:true,
+            message:"Food updated successfully",
+            food
+        });
 
     }catch(error){
         console.log(error);
@@ -181,17 +189,17 @@ const placeOrderController=async(req,res)=>{
           cart.map((i)=>{
             total=total+i.price;
           })
-      const newOrder=new orderModel({
-    cart,
-    totalPrice:total,
-    orderStatus:"placed",
-
-      })
+            const newOrder=new orderModel({
+                foods:cart.map((i)=>i._id || i.id).filter(Boolean),
+                buyer:req.body.id,
+                status:"preparing"
+            })
       await newOrder.save();
       res.status(201).json({
         success:true,
         message:"Order placed successfully",
-            order:newOrder
+                        order:newOrder,
+                        totalPrice:total
         
       })
     }catch(error){
@@ -220,7 +228,7 @@ const orderStatusController=async(req,res)=>{
                     message:"please provide order status"
                 });
               }
-              const orderUpdate=await orderModel.findByIdAndUpdate(orderId,order,{new:true});
+                            const orderUpdate=await orderModel.findByIdAndUpdate(orderId,{status:order},{new:true});
 
                 if(!orderUpdate){
                     return res.status(404).json({
@@ -229,6 +237,11 @@ const orderStatusController=async(req,res)=>{
                         message:"order not found"
                     });
                 }
+                res.status(200).json({
+                    success:true,
+                    message:"Order status updated successfully",
+                    order:orderUpdate
+                });
                 
     }catch(error){
         console.log(error);
