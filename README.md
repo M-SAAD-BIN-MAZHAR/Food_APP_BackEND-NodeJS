@@ -75,12 +75,12 @@ Typical register payload:
 
 ```json
 {
-	"userName": "John",
-	"email": "john@example.com",
-	"password": "secret123",
-	"phone": "1234567890",
-	"address": ["Street", "City"],
-	"answer": "pet-name"
+  "userName": "John",
+  "email": "john@example.com",
+  "password": "secret123",
+  "phone": "1234567890",
+  "address": ["Street", "City"],
+  "answer": "pet-name"
 }
 ```
 
@@ -103,26 +103,26 @@ Typical restaurant payload:
 
 ```json
 {
-	"title": "Food Hub",
-	"imageUrl": "https://example.com/cover.jpg",
-	"foods": [],
-	"time": "20-30 min",
-	"pickup": true,
-	"delivery": true,
-	"isOpen": true,
-	"logoUrl": "https://example.com/logo.jpg",
-	"rating": 4,
-	"ratingCount": "120",
-	"code": "FH001",
-	"coords": {
-		"id": "loc1",
-		"latitude": 24.9,
-		"latitudeDelta": 0.01,
-		"longitude": 67.0,
-		"longitudeDelta": 0.01,
-		"address": "Main Road",
-		"title": "Food Hub"
-	}
+  "title": "Food Hub",
+  "imageUrl": "https://example.com/cover.jpg",
+  "foods": [],
+  "time": "20-30 min",
+  "pickup": true,
+  "delivery": true,
+  "isOpen": true,
+  "logoUrl": "https://example.com/logo.jpg",
+  "rating": 4,
+  "ratingCount": "120",
+  "code": "FH001",
+  "coords": {
+    "id": "loc1",
+    "latitude": 24.9,
+    "latitudeDelta": 0.01,
+    "longitude": 67.0,
+    "longitudeDelta": 0.01,
+    "address": "Main Road",
+    "title": "Food Hub"
+  }
 }
 ```
 
@@ -148,16 +148,16 @@ Typical food payload:
 
 ```json
 {
-	"title": "Burger",
-	"description": "Beef burger",
-	"price": 12,
-	"imageUrl": "https://example.com/burger.jpg",
-	"foodtags": "fast-food",
-	"category": "burger",
-	"code": "BG001",
-	"isAvailable": true,
-	"resturant": "<restaurantObjectId>",
-	"rating": 4
+  "title": "Burger",
+  "description": "Beef burger",
+  "price": 12,
+  "imageUrl": "https://example.com/burger.jpg",
+  "foodtags": "fast-food",
+  "category": "burger",
+  "code": "BG001",
+  "isAvailable": true,
+  "resturant": "<restaurantObjectId>",
+  "rating": 4
 }
 ```
 
